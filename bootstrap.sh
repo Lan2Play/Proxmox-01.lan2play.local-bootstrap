@@ -6,11 +6,11 @@ if [ ! -d "/root/.ssh" ]; then
     mkdir /root/.ssh
 fi
 
-if [[ "$(stat -L -c "%a" /root/.ssh)" != "700"]]; then
-    chmod 777 /root/.ssh
+if [[ "$(stat -L -c '%a' /root/.ssh)" != "700" ]]; then
+    chmod 700 /root/.ssh
 fi
 
-if [ ! -f "/root/.ssh/id_rsa"]
+if [ ! -f "/root/.ssh/id_rsa" ]; then
     ssh-keygen -f /root/.ssh/id_rsa -N ''
     cat /root/.ssh/id_rsa.pub
     while read -r -p "please add the key to github and confirm (y/n)? " response && ([ "$response" != "y" ] && [ "$response" != "Y" ])
@@ -19,11 +19,11 @@ if [ ! -f "/root/.ssh/id_rsa"]
     done
 fi
 
-if [[ $(stat -L -c "%a" /root/.ssh/id_rsa) != "600"]]; then
+if [[ "$(stat -L -c '%a' /root/.ssh/id_rsa)" != "600" ]]; then
     chmod 600 /root/.ssh/id_rsa
 fi
 
-if [[ $(stat -L -c "%a" /root/.ssh/id_rsa.pub) != "644"]]; then
+if [[ "$(stat -L -c '%a' /root/.ssh/id_rsa.pub)" != "644" ]]; then
     chmod 644 /root/.ssh/id_rsa.pub
 fi
 
@@ -35,7 +35,7 @@ fi
 
 cd /root/Proxmox-01.lan2play.local; git pull; cd $CURRFLD
 
-if [ ! -f "/root/Proxmox-01.lan2play.local/firstbootstrapped"]
+if [ ! -f "/root/Proxmox-01.lan2play.local/firstbootstrapped" ]; then
     touch /root/Proxmox-01.lan2play.local/firstbootstrapped
     /root/Proxmox-01.lan2play.local/addsecondhd.sh
 fi
