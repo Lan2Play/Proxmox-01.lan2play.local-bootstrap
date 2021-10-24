@@ -29,6 +29,11 @@ fi
 
 apt-get install git -y
 
+if ! grep github.com /root/.ssh/known_hosts > /dev/null
+then
+    ssh-keyscan github.com >> /root/.ssh/known_hosts
+fi
+
 if [ ! -d "/root/Proxmox-01.lan2play.local" ]; then
     git clone git@github.com:Lan2Play/Proxmox-01.lan2play.local.git /root/Proxmox-01.lan2play.local
 fi
