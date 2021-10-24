@@ -10,7 +10,7 @@ if [[ "$(stat -L -c '%a' /root/.ssh)" != "700" ]]; then
     chmod 700 /root/.ssh
 fi
 
-if [ ! -f "/root/.ssh/id_rsa" ]
+if [ ! -f "/root/.ssh/id_rsa"]
     ssh-keygen -f /root/.ssh/id_rsa -N ''
     cat /root/.ssh/id_rsa.pub
     while read -r -p "please add the key to github and confirm (y/n)? " response && ([ "$response" != "y" ] && [ "$response" != "Y" ])
