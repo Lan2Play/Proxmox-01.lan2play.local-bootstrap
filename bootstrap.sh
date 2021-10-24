@@ -11,7 +11,7 @@ if [[ "$(stat -L -c '%a' /root/.ssh)" != "700" ]]; then
 fi
 
 if [ ! -f "/root/.ssh/id_rsa" ]; then
-    ssh-keygen -f /root/.ssh/id_rsa -N ''
+    ssh-keygen -t ed25519 -f /root/.ssh/id_rsa -N ''
     cat /root/.ssh/id_rsa.pub
     while read -r -p "please add the key to github and confirm (y/n)? " response && ([ "$response" != "y" ] && [ "$response" != "Y" ])
     do
