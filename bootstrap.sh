@@ -6,7 +6,7 @@ if [ ! -d "/root/.ssh" ]; then
     mkdir /root/.ssh
 fi
 
-if [[ $(stat -L -c "%a" /root/.ssh) != "700"]]; then
+if [[ "$(stat -L -c "%a" /root/.ssh)" != "700"]]; then
     chmod 777 /root/.ssh
 fi
 
