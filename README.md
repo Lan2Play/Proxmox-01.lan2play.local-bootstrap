@@ -4,5 +4,5 @@ This script bootstraps the automated Server installation of our first proxmox ho
 ### Running it
 
 ```
-wget https://raw.githubusercontent.com/Lan2Play/Proxmox-01.lan2play.local-bootstrap/main/bootstrap.sh && chmod +x bootstrap.sh && ./bootstrap.sh && rm -rf bootstrap.sh
+wget https://raw.githubusercontent.com/Lan2Play/Proxmox-01.lan2play.local-bootstrap/main/bootstrap.sh && chmod +x bootstrap.sh && ./bootstrap.sh; rm -rf bootstrap.sh
 ```
