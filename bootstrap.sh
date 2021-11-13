@@ -1,6 +1,8 @@
 #!/bin/bash
 CURRFLD=$PWD
-apt-get update -y && apt-get dist-upgrade -y
+apt-get update -y 
+# temporary disable automatic full upgrade because of guestmount bug https://forum.proxmox.com/threads/guestmount-resulting-in-a-qemu-segfault-since-the-last-updates.99665/
+# && apt-get dist-upgrade -y
 
 if [ ! -d "/root/.ssh" ]; then
     mkdir /root/.ssh
